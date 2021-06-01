@@ -110,7 +110,7 @@ class usuarioController
                     $_SESSION['admin'] = true;
                     
                 }
-                Header("location: " . base_url);
+                require_once 'views/usuario/inicio.php';
             } else {
                 $_SESSION['error-login'] = "Error al iniciar sesion";
                 Header("Location:" . base_url . "usuario/singinc");
@@ -118,6 +118,8 @@ class usuarioController
         }
        
     }
+
+
 
     public function loginr()
     {

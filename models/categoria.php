@@ -27,7 +27,7 @@ class Categoria{
     }
 
     public function getAll(){
-        $sql = "SELECT * FROM categorias ORDER BY id DESC;";
+        $sql = "SELECT * FROM categorias ORDER BY id asc;";
         $categorias = $this->db->query($sql);
         return $categorias;
     }

@@ -11,6 +11,14 @@ class categoriaController
         require_once 'views/categoria/index.php';
     }
 
+    public function inicio()
+    {
+        /* Utils::isAdmin(); */
+        $categoria = new Categoria();
+        $categorias = $categoria->getAll();
+        require_once 'views/categoria/inicio.php';
+    }
+
     public function crear()
     {
         Utils::isAdmin();
