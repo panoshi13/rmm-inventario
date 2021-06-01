@@ -13,6 +13,7 @@ class usuarioController
     public function save()
     {
         if (isset($_POST)) {
+            $id = isset($_POST['id']) ? $_POST['id'] : '';
             $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : '';
             $apellidos = isset($_POST['apellidos']) ? $_POST['apellidos'] : '';
             $email = isset($_POST['email']) ? $_POST['email'] : '';
@@ -20,7 +21,7 @@ class usuarioController
 
             $error = array();
 
-            if ($nombre && $apellidos && $email && $contraseña) {
+            if ($id && $nombre && $apellidos && $email && $contraseña) {
 
                 //validacion
                 if (!preg_match(("/[0-9]/"), $nombre)) {
@@ -54,6 +55,7 @@ class usuarioController
                 if (count($error) == 0) {
                     //asignar los datos a las variables
                     $usuario = new Usuario();
+                    $usuario->setId($id);
                     $usuario->setNombre($nombre);
                     $usuario->setApellidos($apellidos);
                     $usuario->setEmail($email);
@@ -62,22 +64,62 @@ class usuarioController
                     $save = $usuario->save();
                     if ($save) {
                         $_SESSION['register'] = "complete";
+                        Header("Location:" . base_url . "usuario/singinc");
                     } else {
                         $_SESSION['register'] = "failed";
+                        Header("Location:" . base_url . "usuario/registro");
                     }
                 } else {
                     $_SESSION['errores'] = $error;
+                    Header("Location:" . base_url . "usuario/registro");
                 }
             } else {
                 $_SESSION['register'] = "failed";
+                Header("Location:" . base_url . "usuario/registro");
             }
         } else {
             $_SESSION['register'] = "failed";
+            Header("Location:" . base_url . "usuario/registro");
         }
-        Header("Location:" . base_url . "usuario/registro");
+        
     }
 
-    public function login()
+    public function singinc()
+    {
+        require_once 'views/usuario/singinc.php';
+    }
+    public function singinr()
+    {
+        require_once 'views/usuario/singinr.php';
+    }
+
+    public function loginc()
+    {
+        if (isset($_POST)) {
+
+            $usuario = new Usuario();
+            $usuario->setEmail($_POST['email']);
+            $usuario->setContraseña($_POST['password']);
+
+            //ejecutar el metodo del modelo
+            $identify = $usuario->login();
+            if ($identify && is_object($identify)) {
+                $_SESSION['verify'] = $identify;
+
+                if ($identify->rol == 'admin') {
+                    $_SESSION['admin'] = true;
+                    
+                }
+                Header("location: " . base_url);
+            } else {
+                $_SESSION['error-login'] = "Error al iniciar sesion";
+                Header("Location:" . base_url . "usuario/singinc");
+            }
+        }
+       
+    }
+
+    public function loginr()
     {
         if (isset($_POST)) {
 
@@ -93,8 +135,10 @@ class usuarioController
                 if ($identify->rol == 'admin') {
                     $_SESSION['admin'] = true;
                 }
+                Header("location: " . base_url);
             } else {
                 $_SESSION['error-login'] = "Error al iniciar_sesion.php";
+                Header("Location:" . base_url . "usuario/singinr");
             }
         }
        Header("location: " . base_url);

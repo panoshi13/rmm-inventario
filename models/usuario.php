@@ -71,7 +71,7 @@ class Usuario {
     }
 
     public function save(){
-        $sql = "INSERT INTO usuarios VALUES(null, '{$this->getNombre()}', "
+        $sql = "INSERT INTO usuarios VALUES('{$this->getId()}', '{$this->getNombre()}', "
         . "'{$this->getApellidos()}', '{$this->getEmail()}','{$this->getContraseña()}',"
         . "'user',null)";
         
