@@ -85,9 +85,9 @@ class categoriaController
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
 
-            $categoria = new Categoria();
+            /* $categoria = new Categoria();
             $categoria->setId($id);
-            $cat = $categoria->getOneCategory();
+            $cat = $categoria->getOneCategory(); */
 
             $productos = new Categoria();
             $productos->setId($id);

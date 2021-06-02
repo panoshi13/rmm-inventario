@@ -45,14 +45,15 @@
         </div>
     </div>
 </nav>
-<div class=" mt-2 container">
+
+<div class="mt-5 container">
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <?php foreach ($categorias as $value) :?>
             <div class="col">
-                <div class="card">
-                    <img src="<?=base_url?>assets/img/<?=$value['imagen']?>" class="card-img-top" style="widht:100px" alt="...">
+                <div class="card shadow bg-body rounded" >
+                    <img src="<?=base_url?>assets/img/<?=$value['imagen']?>" class="card-img-topp" alt="...">
                     <div class="card-body text-center">
-                        <button class=" btn btn-light card-title"><?=$value['nombre']?></button>
+                        <a class="btn btn-secondary card-title" href="<?=base_url?>producto/ver&id=<?=$value['id']?>"><?=$value['nombre']?></a>
                     </div>
                 </div>
             </div>

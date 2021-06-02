@@ -45,12 +45,14 @@ class Categoria{
         $categorias = $this->db->query($sql);
         return $categorias->fetch_object();
     }
+
     public function getCategoryXProduct()
     {
         $sql = "SELECT p.* FROM categorias c INNER JOIN productos p ON c.id=p.categoria_id WHERE c.id={$this->getId()}";
         $categorias = $this->db->query($sql);
         return $categorias;
     }
+    
     public function crear(){
         $sql = "INSERT INTO categorias VALUES(null, '{$this->getNombre()}')";
         $save = $this->db->query($sql);

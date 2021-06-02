@@ -102,4 +102,18 @@ class Usuario {
         }
         return $result;
     }
+    public function loginr(){
+        $result = false;
+        $email = $this->email;
+        $password = $this->contraseña;
+        $sql = "SELECT * FROM usuarios WHERE email = '$email' AND password='$password'";
+
+        $login = $this->db->query($sql);
+
+
+        if ($login && $login->num_rows == 1) {
+            $usuario = $login->fetch_object();
+        }
+        return $usuario;
+    }
 }

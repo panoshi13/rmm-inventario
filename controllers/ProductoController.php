@@ -1,5 +1,6 @@
 <?php
 require_once 'models/producto.php';
+require_once 'models/categoria.php';
 
 class productoController
 {
@@ -21,10 +22,12 @@ class productoController
     public function crear()
     {
         Utils::isAdmin();
+        $categoria = new Categoria();
+        $categorias = $categoria->getAll();
         require_once 'views/producto/crear.php';
     }
 
-    public function ver()
+    /* public function ver()
     {
         Utils::isAdmin();
         if (isset($_GET['id'])) {
@@ -32,6 +35,22 @@ class productoController
             $producto = new Producto();
             $producto->setId($id);
             $product = $producto->getOne();
+        }
+        require_once "views/producto/ver.php";
+    } */
+
+    public function ver()
+    {
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+
+            /* $categoria = new Categoria();
+            $categoria->setId($id);
+            $cat = $categoria->getOneCategory(); */
+
+            $productos = new Categoria();
+            $productos->setId($id);
+            $product = $productos->getCategoryXProduct();
         }
         require_once "views/producto/ver.php";
     }
@@ -91,7 +110,7 @@ class productoController
         } else {
             echo $_SESSION['producto'] = 'failed';
         }
-        Header("Location: " . base_url . "producto/gestion");
+        Header("Location: " . base_url . "producto/crear");
     }
 
 

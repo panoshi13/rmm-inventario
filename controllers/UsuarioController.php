@@ -105,11 +105,6 @@ class usuarioController
             $identify = $usuario->login();
             if ($identify && is_object($identify)) {
                 $_SESSION['verify'] = $identify;
-
-                if ($identify->rol == 'admin') {
-                    $_SESSION['admin'] = true;
-                    
-                }
                 require_once 'views/usuario/inicio.php';
             } else {
                 $_SESSION['error-login'] = "Error al iniciar sesion";
@@ -130,20 +125,20 @@ class usuarioController
             $usuario->setContraseña($_POST['password']);
 
             //ejecutar el metodo del modelo
-            $identify = $usuario->login();
+            $identify = $usuario->loginr();
             if ($identify && is_object($identify)) {
                 $_SESSION['verify'] = $identify;
 
                 if ($identify->rol == 'admin') {
                     $_SESSION['admin'] = true;
+                    Header("location: " . base_url."producto/crear");
                 }
-                Header("location: " . base_url);
+                
             } else {
-                $_SESSION['error-login'] = "Error al iniciar_sesion.php";
+                $_SESSION['error-login'] = "Error al iniciar sesion.php";
                 Header("Location:" . base_url . "usuario/singinr");
             }
         }
-       Header("location: " . base_url);
     }
 
     public function logout()
