@@ -42,22 +42,18 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
+                                            <th>Id</th>
+                                            <th>Repuesto</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td scope="row"></td>
                                             <td>2</td>
-                                            <td>3</td>
                                         </tr>
                                         <tr>
                                             <td scope="row"></td>
                                             <td>1</td>
-                                            <td>3</td>
                                         </tr>
                                     </tbody>
                                 </table>

@@ -1,36 +1,61 @@
 $(document).ready(function () {
 
-    //$('#boton1').attr('disabled', true);
-    document.getElementById("boton1").disabled = true;
-    let ids = [];
+
+    let ids = []
+
+    let obj = {}
+
+    //existsLocalStorage()
+
+    function existsLocalStorage() {
+        //comprobar si esta creado
+
+        if (localStorage.getItem("id-carrito") !== undefined) {
+            const objIds = JSON.parse(localStorage.getItem("id-carrito"))
 
 
-    $(".btn-danger").click(function (e) { 
-        e.preventDefault();
-        
-        ids.push(this.id);
+            var editButtons = document.querySelectorAll('button#carrito');
 
-        console.log(ids)
 
-        let ide = document.getElementById(this)
 
-        //jQuery('.btn-danger').prop('disabled', false);
-        //$('#'+this.id).attr("disabled", false);
-        
-        
+            for (const property in objIds) {
+                console.log(objIds[property]);
 
-        localStorage.setItem("id",JSON.stringify(ids))
-
-        
-
-        /* $.ajax({
-            type: "post",
-            url: "http://localhost/rmm-inventario/ajax/carrito.php",
-            data: "data",
-            dataType: "dataType",
-            success: function (response) {
-                console.log(response)
+                editButtons.forEach(e => {
+                    console.log(e.dataset.id);
+                    objIds[property].forEach(ex => {
+                        if (parseInt(e.dataset.id, 10) == ex) {
+                            $("#carrito").attr('disabled', true);
+                        }
+                    })
+                });
             }
-        }); */
+            //$("#carrito").attr('disabled', true);
+        }
+    }
+
+    $(document).on("click", "#carrito", function (e) {
+        e.preventDefault();
+        console.log("hola")
+
+
+        $(this).attr('disabled', true);
+
+        let id = $(this).data("id")
+
+        ids.push(id);
+
+        console.log(ids.length)
+
+        obj = {
+            "id": ids
+        }
+
+
+        $(".btn-secondary").html( `<i class="fas fa-shopping-cart"></i>(${ids.length})`);
+
+        //localStorage.setItem("id-carrito", JSON.stringify(obj))
     });
+
+
 });

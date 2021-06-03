@@ -9,11 +9,11 @@
                             <h4><?= $value['nombre'] ?></h4>
                             <p><?= $value['descripcion'] ?></p>
                             <div class="row">
-                                <div class="col">
-                                <a class="btn btn-info card-title" href="<?= base_url ?>producto/ver&id=<?= $value['id'] ?>">Stock: <?=$value['stock']?></a>
+                                <div class="col d-flex align-items-center justify-content-center ">
+                                <p class="bg-info rounded-3 card-title p-1">Stock: <?=$value['stock']?></p>
                                 </div>
                                 <div class="col">
-                                <a class="btn btn-danger card-title" id="carrito" data-carrito="<?=$value['id']?>">Añadir a carrito</a>
+                                <button class="btn btn-danger card-title" id="carrito" data-id="<?=$value['id']?>">Añadir a carrito</button>
                                 </div>
                             </div>
                             
@@ -26,5 +26,3 @@
 <?php else : ?>
     <h1>No existe el producto</h1>
 <?php endif ?>
-
-<btn class="btn btn-danger card-title" id="boton1" data-carrito="<?=$value['id']?>">carrito</btn>
