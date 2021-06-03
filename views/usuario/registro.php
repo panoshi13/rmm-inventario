@@ -1,3 +1,4 @@
+
 <div class="m-0 vh-100 row justify-content-center align-items-center bg-light">
     <div class="col-auto bg-white p-5 shadow-sm p-3 mb-5 bg-white rounded mt-3" style="width: 570px">
         <h3>Registro de Cliente</h3>

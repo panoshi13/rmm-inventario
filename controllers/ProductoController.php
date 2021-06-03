@@ -102,15 +102,15 @@ class productoController
                 if ($productos) {
                     echo $_SESSION['producto'] = 'complete';
                 } else {
-                    echo $_SESSION['producto'] = 'failed';
+                    echo $_SESSION['producto'] = 'failed1';
                 }
             } else {
-                echo  $_SESSION['producto'] = 'failed';
+                echo  $_SESSION['producto'] = 'failed2';
             }
         } else {
-            echo $_SESSION['producto'] = 'failed';
+            echo $_SESSION['producto'] = 'failed3';
         }
-        Header("Location: " . base_url . "producto/crear");
+        Header("Location: " . base_url . "producto/gestion");
     }
 
 

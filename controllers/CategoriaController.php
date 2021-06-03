@@ -24,7 +24,11 @@ class categoriaController
         Utils::isAdmin();
         require_once 'views/categoria/crear.php';
     }
-
+    public function nuevaCompra()
+    {
+        Utils::isAdmin();
+        require_once 'views/categoria/crear.php';
+    }
     public function save()
     {
         Utils::isAdmin();

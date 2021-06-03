@@ -10,6 +10,11 @@ class usuarioController
     {
         require_once 'views/usuario/registro.php';
     }
+
+    public function inicio()
+    {
+        require_once 'views/usuario/inicio.php';
+    }
     public function save()
     {
         if (isset($_POST)) {
@@ -105,7 +110,7 @@ class usuarioController
             $identify = $usuario->login();
             if ($identify && is_object($identify)) {
                 $_SESSION['verify'] = $identify;
-                require_once 'views/usuario/inicio.php';
+                Header("Location:" . base_url . "usuario/inicio");
             } else {
                 $_SESSION['error-login'] = "Error al iniciar sesion";
                 Header("Location:" . base_url . "usuario/singinc");
