@@ -8,15 +8,18 @@
                         <div class="card-body text-center">
                             <h4><?= $value['nombre'] ?></h4>
                             <p><?= $value['descripcion'] ?></p>
+                            <div class="badge bg-success text-wrap mb-2" >
+                                Precio: <?=$value['precio']?>
+                            </div>
                             <div class="row">
                                 <div class="col d-flex align-items-center justify-content-center ">
-                                <p class="bg-info rounded-3 card-title p-1">Stock: <?=$value['stock']?></p>
+                                    <p class="bg-info badge p-1">Stock: <?= $value['stock'] ?></p>
                                 </div>
                                 <div class="col">
-                                <button class="btn btn-danger card-title" id="carrito" data-id="<?=$value['id']?>">Añadir a carrito</button>
+                                    <button class="btn btn-danger card-title" id="carrito-<?= $value['id'] ?>" precio-car="<?=$value['precio']?>" titulo-car="<?= $value['nombre'] ?>" data-id="<?= $value['id'] ?>">Añadir a carrito</button>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>

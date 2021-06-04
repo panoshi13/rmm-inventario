@@ -38,25 +38,22 @@
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-shopping-cart"></i>()
                             </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <ul class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton1">
                                 <table class="table">
                                     <thead>
                                         <tr>
                                             <th>Id</th>
                                             <th>Repuesto</th>
+                                            <th>Precio</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td scope="row"></td>
-                                            <td>2</td>
-                                        </tr>
-                                        <tr>
-                                            <td scope="row"></td>
-                                            <td>1</td>
-                                        </tr>
+                                    <tbody id="tabla">
+                                        
                                     </tbody>
                                 </table>
+                                <p class="bg-success badge p-1" id="total"></p>
+                                <br>
+                                <a class="btn btn-warning" href="<?=base_url?>pedido/comprar">Pasar por caja</a>
                             </ul>
                         </div>
                         <li class="nav-item dropdown">
