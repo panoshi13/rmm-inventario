@@ -6,7 +6,6 @@
                 Su cuenta
             </div>
             <div class="card-body">
-
                 <div class="row">
                     <div class="col shadow-sm d-flex flex-column bd-highlight m-1 bg-light justify-content-center">
                         <div class="p-0 bd-highlight"><i class="far fa-user-circle"></i></div>
@@ -21,7 +20,6 @@
                         <div class="p-0 bd-highlight"><a href="#" class="btn">Historial y detalles de pedido</a></div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

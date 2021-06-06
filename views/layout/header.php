@@ -48,12 +48,10 @@
                                         </tr>
                                     </thead>
                                     <tbody id="tabla">
-                                        
                                     </tbody>
                                 </table>
-                                <p class="bg-success badge p-1" id="total"></p>
                                 <br>
-                                <a class="btn btn-warning" href="<?=base_url?>pedido/comprar">Pasar por caja</a>
+                                <a class="btn btn-warning" href="<?=base_url?>pedido/compras">Pasar por caja</a>
                             </ul>
                         </div>
                         <li class="nav-item dropdown">
@@ -63,7 +61,7 @@
                                     <strong>Bienvenid@ <?= $_SESSION['verify']->nombre ?></strong>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="<?= base_url ?>usuario/informacion">Información</a></li>
+                                    <li><a class="dropdown-item" href="#">Información</a></li>
                                     <li><a class="dropdown-item" href="<?= base_url ?>categoria/inicio">Nueva compra</a></li>
                                     <li><a class="dropdown-item" href="<?= base_url ?>usuario/historial">Historial</a></li>
                                     <li><a class="dropdown-item" href="<?= base_url ?>usuario/logout">Cerrar Sesion</a></li>

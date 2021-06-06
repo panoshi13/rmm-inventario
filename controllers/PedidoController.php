@@ -9,6 +9,15 @@ class pedidoController
         require_once "views/pedido/hacer.php";
     }
 
+    public function compras()
+    {
+        require_once "views/pedido/comprar.php";
+    }
+    public function confirmar()
+    {
+        require_once "views/pedido/confirmar.php";
+    }
+
     public function add()
     {
         if (isset($_SESSION['verify'])) {
