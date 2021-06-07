@@ -3,6 +3,21 @@ $(document).ready(function () {
   let obj = [];
   let carrito;
   existsLocalStorage();
+  $("#direccion").hide();
+  $(".tarjeta").hide();
+
+  $(document).on("click", "#domicilio", function () {
+    $("#direccion").show();
+    $(".tarjeta").show();
+  });
+  $(document).on("click", "#tienda", function () {
+    $("#direccion").hide();
+    $(".tarjeta").show();
+  });
+  $(document).on("click", "#express", function () {
+    $("#direccion").show();
+    $(".tarjeta").show();
+  });
 
   //comprobacion si existe el localStorage
   function existsLocalStorage() {
@@ -147,4 +162,31 @@ $(document).ready(function () {
     existsLocalStorage();
     pintarTabla(object);
   });
+
+  $(document).on("click", "#finCompra",function (e) {
+    e.preventDefault()
+
+    const data = JSON.parse(localStorage.getItem("id-carrito"));
+    const ubicacion = [
+      {
+        "departamento": "Lima",
+        "distrito": "SJL"
+      },
+      {
+        "departamento": "Tacna",
+        "distrito": "VMT"
+      },
+    ]
+    
+    $.ajax({
+      type: "post",
+      url: "http://localhost/rmm-inventario/ajax/carrito.php",
+      data: {ubicacion},
+      dataType: "dataType",
+      success: function (response) {
+        console.log(response)
+      }
+    });
+  });
+
 });
