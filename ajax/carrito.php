@@ -1,12 +1,23 @@
-<?php 
+<?php
+require_once '../models/pedido.php';
+require_once '../config/database.php';
 
-    foreach ($_POST['ubicacion'] as $key => $value) {
-        foreach ($_POST['ubicacion'][$key] as $k => $v) {
-            echo $v+"</br>";
-        }
+$productos = json_decode($_POST['data'], true);
+
+$pedidoModel = new Pedido();
+
+foreach ($productos as $key => $value) {
+
+    $id_pedido = $pedidoModel->lastPedido()->id;
+
+    $save = $pedidoModel->insert_save_linea($id_pedido, $value['id'], $value['unidad']);
+
+    
+    echo $save;
+    if ($save) {
+        echo json_encode("carrito");
+    } else {
+        echo json_encode("no carrito");
     }
 
-    //echo $_POST['ubicacion'][0]
-    
-
-?>
+}

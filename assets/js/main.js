@@ -2,6 +2,8 @@ $(document).ready(function () {
   //creacion del array y objetos para que guarden los id,titulo,precios y unidad
   let obj = [];
   let carrito;
+  let mtotal = 0;
+
   existsLocalStorage();
   $("#direccion").hide();
   $(".tarjeta").hide();
@@ -105,6 +107,8 @@ $(document).ready(function () {
 
       total += parseInt(element.precio) * element.unidad;
 
+      mtotal = total;
+
       plantilla1 += `<tr>
                         <td scope="row" carid="${element.id}">${element.id}</td>
                         <td>${element.titulo}</td>
@@ -162,26 +166,34 @@ $(document).ready(function () {
     existsLocalStorage();
     pintarTabla(object);
   });
-
+  
   $(document).on("click", "#finCompra",function (e) {
     e.preventDefault()
 
-    const data = JSON.parse(localStorage.getItem("id-carrito"));
-    const ubicacion = [
-      {
-        "departamento": "Lima",
-        "distrito": "SJL"
-      },
-      {
-        "departamento": "Tacna",
-        "distrito": "VMT"
-      },
-    ]
-    
+    const data = localStorage.getItem("id-carrito");
+    const compra = {
+      "departamento" : $("#departamento").val(),
+      "distrito": $("#distrito").val(),
+      "direccion":$("#direc").val(),
+      "coste" : mtotal,
+      "id-usuario" : $("#id-usuario").attr("id-usuario")
+    }
+    const compras = JSON.stringify(compra)
+
+    $.ajax({
+      type: "post",
+      url: "http://localhost/rmm-inventario/ajax/pedido.php",
+      data: {compras},
+      dataType: "dataType",
+      success: function (response) {
+        console.log(response)
+      }
+    });
+
     $.ajax({
       type: "post",
       url: "http://localhost/rmm-inventario/ajax/carrito.php",
-      data: {ubicacion},
+      data: {data},
       dataType: "dataType",
       success: function (response) {
         console.log(response)

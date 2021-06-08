@@ -107,11 +107,11 @@ class Pedido
         return $productos;
     }
 
-    public function getOne()
+    public function getOne($id)
     {
-        $sql = "SELECT * FROM pedidos WHERE id={$this->getId()}";
+        $sql = "SELECT * FROM pedidos WHERE id=$id";
         $pedidos = $this->db->query($sql);
-        return $pedidos->fetch_object();;
+        return $pedidos->fetch_object();
     }
 
     public function getLineasPedidos($id)
@@ -181,6 +181,25 @@ class Pedido
         return $result;
     }
 
+    public function lastPedido()
+    {
+        $sql = "SELECT * from pedidos order by id desc limit 1;";
+        
+        $result = $this->db->query($sql);
+        return $result->fetch_object();
+    }
+
+    public function insert_save_linea($pedido_id, $producto_id, $unidades)
+    {
+        $insert = "INSERT INTO lineas_pedidos VALUES(NULL, $pedido_id, $producto_id, $unidades)";
+        $save_linea = $this->db->query($insert);
+        $result = false;
+        if ($save_linea) {
+            $result = true;
+        }
+        return $result;
+    }
+
     public function edit()
     {
         $sql = "UPDATE pedidos SET estado='{$this->getEstado()}' WHERE id={$this->getId()}";
@@ -189,6 +208,6 @@ class Pedido
         if ($pedidos) {
             $result = true;
         }
-        return $result;        
+        return $result;
     }
 }

@@ -58,7 +58,7 @@
                             <div class="d-flex align-items-center">
 
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <strong>Bienvenid@ <?= $_SESSION['verify']->nombre ?></strong>
+                                    <strong id="id-usuario" id-usuario="<?=$_SESSION['verify']->id?>">Bienvenid@ <?= $_SESSION['verify']->nombre ?></strong>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="#">Información</a></li>

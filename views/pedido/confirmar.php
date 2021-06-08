@@ -22,27 +22,27 @@
             </div>
             <br>
             <div class="col-auto mx-auto" style="width: 750px">
-                <form action="<?= base_url ?>usuario/" method="post">
+                <form action="" method="post">
                     <div class="" id="direccion">
                         <h3>Formulario de envío</h3>
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">Departamento</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputEmail3" placeholder="Ingrese Departamento" name="id">
+                                <input type="text" class="form-control" id="departamento" placeholder="Ingrese Departamento" name="departamento">
                             </div>
                         </div>
                         <br>
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">Distrito</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputEmail3" placeholder="Ingrese Distrito" name="distrito">
+                                <input type="text" class="form-control" id="distrito" placeholder="Ingrese Distrito" name="distrito">
                             </div>
                         </div>
                         <br>
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">Direccion</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputEmail3" placeholder="Ingrese Direccion" name="direccion">
+                                <input type="text" class="form-control" id="direc" placeholder="Ingrese Direccion" name="direccion">
                             </div>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">Nombre de titular</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" id="inputEmail3" placeholder="Como aparece en la tarjeta" name="direccion" required>
+                                <input type="text" class="form-control" id="titular" placeholder="Como aparece en la tarjeta" name="direccion" required>
                             </div>
                         </div>
                         <br>
@@ -62,7 +62,7 @@
                             <div class="col">
                                 <div class="row">
                                     <div class="col-sm-2">
-                                        <input type="text" class="form-control" id="inputEmail3" placeholder="Mes" name="direccion" required>
+                                        <input type="text" class="form-control" id="expiracion" placeholder="Mes" name="direccion" required>
                                     </div>
                                     <div class="col-sm-2">
                                         <input type="text" class="form-control" id="inputEmail3" placeholder="Año" name="direccion" required>
@@ -76,14 +76,14 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">Número de tarjeta</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" id="inputEmail3" placeholder="número de la tarjeta" name="direccion" required>
+                                <input type="text" class="form-control" id="ntarjeta" placeholder="número de la tarjeta" name="direccion" required>
                             </div>
                         </div>
                         <br>
                         <div class="form-group row">
                             <label for="" class="col-sm-2 col-form-label">Código de seguridad</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control" id="inputEmail3" placeholder="3 digitos" name="direccion" required>
+                                <input type="text" class="form-control" id="codigo" placeholder="3 digitos" name="direccion" required>
                             </div>
                         </div>
                     </div>
