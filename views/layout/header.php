@@ -63,7 +63,7 @@
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="#">Información</a></li>
                                     <li><a class="dropdown-item" href="<?= base_url ?>categoria/inicio">Nueva compra</a></li>
-                                    <li><a class="dropdown-item" href="<?= base_url ?>usuario/historial">Historial</a></li>
+                                    <li><a class="dropdown-item" href="<?= base_url ?>pedido/historial">Historial</a></li>
                                     <li><a class="dropdown-item" href="<?= base_url ?>usuario/logout">Cerrar Sesion</a></li>
                                 </ul>
                             </div>

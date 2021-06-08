@@ -186,19 +186,23 @@ $(document).ready(function () {
       data: {compras},
       dataType: "dataType",
       success: function (response) {
-        console.log(response)
+        $.ajax({
+          type: "post",
+          url: "http://localhost/rmm-inventario/ajax/carrito.php",
+          data: {data},
+          dataType: "dataType",
+          success: function (response) {
+            console.log(response)
+          }
+        });
       }
     });
 
-    $.ajax({
-      type: "post",
-      url: "http://localhost/rmm-inventario/ajax/carrito.php",
-      data: {data},
-      dataType: "dataType",
-      success: function (response) {
-        console.log(response)
-      }
-    });
+    
+
+    var url = "http://localhost/rmm-inventario/pedido/historial";    
+    $(location).attr('href',url);
+    localStorage.removeItem("id-carrito");
   });
 
 });

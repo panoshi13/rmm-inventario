@@ -18,6 +18,16 @@ class pedidoController
         require_once "views/pedido/confirmar.php";
     }
 
+    public function historial()
+    {
+
+        Utils::isVerify();
+        $id = $_SESSION['verify']->id;
+        $pedido = new Pedido();
+        $pedidos = $pedido->getMisPedidos($id);
+        require_once "views/pedido/historial.php";
+    }
+
     public function add()
     {
         if (isset($_SESSION['verify'])) {
@@ -80,7 +90,7 @@ class pedidoController
             //sacar el pedido
             $pedido = new Pedido();
             $pedido->setId($id);
-            $pedido = $pedido->getOne();
+            $pedido = $pedido->getOne($id);
 
             //sacar los productos
             $pedido_producto = new Pedido();

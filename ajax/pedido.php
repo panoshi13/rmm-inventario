@@ -32,7 +32,7 @@ foreach ($pedido as $key => $value) {
 $save = $pedidoModel->save();
 
 if ($save) {
-    echo  json_encode('complete');
+    echo  $_SESSION['pedido'] = 'complete';
 } else {
-    echo  json_encode('failed');
+    echo  $_SESSION['pedido'] = 'failed';
 }
